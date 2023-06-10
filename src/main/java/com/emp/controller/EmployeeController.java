@@ -2,6 +2,8 @@ package com.emp.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class EmployeeController {
 	private EmployeeService service;
 
 	@PostMapping("/insertEmployee")
-	public ResponseEntity<EmployeeEntity> registerEmployee(@RequestBody EmployeeEntity entity) {
+	public ResponseEntity<EmployeeEntity> registerEmployee(@RequestBody @Valid EmployeeEntity entity) {
 		EmployeeEntity entity2 = service.saveDetails(entity);
 		return new ResponseEntity<>(entity2, HttpStatus.CREATED);
 

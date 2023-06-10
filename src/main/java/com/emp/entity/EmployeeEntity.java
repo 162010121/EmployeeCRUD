@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.persistence.Id;
 
 import lombok.Data;
@@ -18,6 +20,9 @@ public class EmployeeEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "studentId")
 	private Integer Id;
+	
+	@NotBlank(message = "student_Name cannot be blank")
+	@NotEmpty
 	@Column(name = "studentName")
 	private String name;
 	@Column(name = "studentCity")
